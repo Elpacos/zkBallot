@@ -68,8 +68,10 @@ contract BallotFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     /**
      * This contract is intended to be behind a delegate proxy.
      */
-    constructor(address _verifier, address _hasher) {
-         initialize(_verifier, _hasher);
+     
+    /// @custom:oz-upgrades-unsafe-allow constructor
+    constructor() {
+        initialize(address(0), address(0));
     }
 
     /**

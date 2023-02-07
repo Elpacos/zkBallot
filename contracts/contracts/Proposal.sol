@@ -21,10 +21,10 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
 
     error UnAuthorizedCaller(address caller);
     error UsedCommitment(bytes32 commit);
-    error VotationPeriodStarted();
-    error VotationPeriodNotStarted();
-    error VotationPeriodFinished();
-    error VotationPeriodNotFinished();
+    error VotingPeriodStarted();
+    error VotingPeriodNotStarted();
+    error VotingPeriodFinished();
+    error VotingPeriodNotFinished();
     error InvalidChoice();
     error InvalidNullifier();
     error InvalidWithdrawProof();
@@ -133,14 +133,14 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
     }
 
     /**
-     * @notice True if the votation has ended
+     * @notice True if the voting has ended
      */
     function hasEnded() public view returns (bool) {
         return block.timestamp > endDate;
     }
 
     /**
-     * @notice True if the votation has started
+     * @notice True if the voting has started
      */
     function hasStarted() public view returns (bool) {
         return block.timestamp > startDate;
@@ -152,7 +152,7 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
      */
     function proposalResults() public view returns(uint256[] memory){
         if(!hasEnded()){
-            revert VotationPeriodNotFinished();
+            revert VotingPeriodNotFinished();
         }
 
         uint256[] memory results = new uint256[](choiceNumber);
@@ -181,7 +181,7 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
             revert UsedCommitment(_commitment);
         }
         if(block.timestamp > startDate){
-            revert VotationPeriodStarted();
+            revert VotingPeriodStarted();
         }
         if(signed[msg.sender]){
             revert UnAuthorizedCaller(msg.sender);
@@ -208,10 +208,10 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
         uint256 _choice
     ) external {
         if(block.timestamp > endDate){
-            revert VotationPeriodFinished();
+            revert VotingPeriodFinished();
         }
         if(block.timestamp < startDate){
-            revert VotationPeriodNotStarted();
+            revert VotingPeriodNotStarted();
         }
         if(_choice == 0 || _choice > choices.length){
             revert InvalidChoice();

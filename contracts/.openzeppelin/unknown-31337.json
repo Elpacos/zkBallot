@@ -38,7 +38,7 @@
     },
     {
       "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-      "txHash": "0x7a38a2f49d966efd9f5d08b67479e6c153971817021d63f1ac0ee164322886bd",
+      "txHash": "0x58f68a7398f91e9547333314e0d8e916a27b3c596e9948e4d8184d634bf64ee7",
       "kind": "uups"
     }
   ],
@@ -763,9 +763,9 @@
         }
       }
     },
-    "7d80500f34fbfc616683a3ac7e6be8ba8fdf77da9322a08c9138fb6993cfed25": {
+    "acd53788a1155b8f8f5e0fee4133616eb37c6feec1452e38aedd4775cabde005": {
       "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0x18f3de7f0e1191c2faa65dda05312d4eee19c4cbf8805dcb776abc7f3a43459f",
+      "txHash": "0x2071a5b2cca0c1007f23a95192fd3a422455362d3d4c6260325b502d2ca99578",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -775,7 +775,7 @@
             "slot": "0",
             "type": "t_uint8",
             "contract": "Initializable",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:62",
             "retypedFrom": "bool"
           },
           {
@@ -784,7 +784,7 @@
             "slot": "0",
             "type": "t_bool",
             "contract": "Initializable",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:67"
           },
           {
             "label": "__gap",
@@ -792,7 +792,7 @@
             "slot": "1",
             "type": "t_array(t_uint256)50_storage",
             "contract": "ERC1967UpgradeUpgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:211"
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\ERC1967\\ERC1967UpgradeUpgradeable.sol:211"
           },
           {
             "label": "__gap",
@@ -800,7 +800,7 @@
             "slot": "51",
             "type": "t_array(t_uint256)50_storage",
             "contract": "UUPSUpgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:107"
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\UUPSUpgradeable.sol:107"
           },
           {
             "label": "__gap",
@@ -808,7 +808,7 @@
             "slot": "101",
             "type": "t_array(t_uint256)50_storage",
             "contract": "ContextUpgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:36"
           },
           {
             "label": "_owner",
@@ -816,7 +816,7 @@
             "slot": "151",
             "type": "t_address",
             "contract": "OwnableUpgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:22"
           },
           {
             "label": "__gap",
@@ -824,47 +824,55 @@
             "slot": "152",
             "type": "t_array(t_uint256)49_storage",
             "contract": "OwnableUpgradeable",
-            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:94"
           },
           {
             "label": "verifier",
             "offset": 0,
             "slot": "201",
             "type": "t_address",
-            "contract": "VotingFactory",
-            "src": "contracts/VotingFactory.sol:19"
+            "contract": "BallotFactory",
+            "src": "contracts\\BallotFactory.sol:41"
           },
           {
             "label": "hasher",
             "offset": 0,
             "slot": "202",
             "type": "t_address",
-            "contract": "VotingFactory",
-            "src": "contracts/VotingFactory.sol:20"
+            "contract": "BallotFactory",
+            "src": "contracts\\BallotFactory.sol:46"
           },
           {
             "label": "id",
             "offset": 0,
             "slot": "203",
             "type": "t_uint256",
-            "contract": "VotingFactory",
-            "src": "contracts/VotingFactory.sol:21"
+            "contract": "BallotFactory",
+            "src": "contracts\\BallotFactory.sol:51"
           },
           {
-            "label": "register",
+            "label": "proposalsOf",
             "offset": 0,
             "slot": "204",
             "type": "t_mapping(t_address,t_array(t_address)dyn_storage)",
-            "contract": "VotingFactory",
-            "src": "contracts/VotingFactory.sol:24"
+            "contract": "BallotFactory",
+            "src": "contracts\\BallotFactory.sol:56"
           },
           {
             "label": "identification",
             "offset": 0,
             "slot": "205",
             "type": "t_mapping(t_uint256,t_address)",
-            "contract": "VotingFactory",
-            "src": "contracts/VotingFactory.sol:25"
+            "contract": "BallotFactory",
+            "src": "contracts\\BallotFactory.sol:61"
+          },
+          {
+            "label": "proposals",
+            "offset": 0,
+            "slot": "206",
+            "type": "t_array(t_address)dyn_storage",
+            "contract": "BallotFactory",
+            "src": "contracts\\BallotFactory.sol:66"
           }
         ],
         "types": {
