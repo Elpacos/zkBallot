@@ -49,8 +49,6 @@ contract MerkleTree {
         view
         returns (bytes32)
     {
-        console.log(uint256(_left));
-        console.log(uint256(_right));
         require(
             uint256(_left) < FIELD_SIZE,
             "_left is out the field"
