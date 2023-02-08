@@ -42,8 +42,6 @@ class MerkleTree {
             rightKey,
             this.zero_values[level - 1]
           );
-          console.log("left", left);
-          console.log("right", right);
           const subRoot = this.hasher.hash(null, left, right);
           this.storage.put(MerkleTree.index_to_key(prefix, level, i), subRoot);
         }

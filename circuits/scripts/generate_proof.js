@@ -1,14 +1,13 @@
 const snarkjs = require("snarkjs");
-const fs = require("fs");
 const lib = require("./generate_input");
 
 async function main() {
   const input = await lib.generateWitness();
-  console.log(input);
+  console.log("js nullifier", input.nullifierHash);
 
   const { proof, publicSignals } = await snarkjs.groth16.fullProve(
     input,
-    "./votation_js/votation.wasm",
+    "./ballot_js/ballot.wasm",
     "./circuit_0002.zkey"
   );
 

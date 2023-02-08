@@ -6,7 +6,6 @@ let poseidon;
 class PoseidonHasher {
   async hash(level, left, right) {
     poseidon = await circomlib.buildPoseidon()
-    console.log(poseidon);
     //return circomlib.buildPoseidon([bigInt(left), bigInt(right)]);
   }
 }

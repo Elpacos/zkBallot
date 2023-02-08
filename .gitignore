@@ -1,0 +1,24 @@
+node_modules
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+artifacts
+
+
+# circuit files
+.ptau
+challenge_0003
+response_0003
+.zkey
+.r1cs.json
+.r1cs
+.sym
+
+# build
+build_circuits.sh
+
