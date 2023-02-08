@@ -11,13 +11,13 @@ artifacts
 
 
 # circuit files
-.ptau
+*.ptau
 challenge_0003
 response_0003
-.zkey
-.r1cs.json
-.r1cs
-.sym
+*.zkey
+*.r1cs.json
+*.r1cs
+*.sym
 
 # build
 build_circuits.sh
