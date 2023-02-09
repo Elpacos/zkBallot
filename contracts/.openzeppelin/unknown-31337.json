@@ -38,7 +38,7 @@
     },
     {
       "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-      "txHash": "0x6731e811e9cf8a9501410140426967da6a03930bc2894e870167368845fb3378",
+      "txHash": "0x516028b0caaacfe5c0089e3016c5469dbae2e55062a05e33768503d6023c1c5c",
       "kind": "uups"
     }
   ],
@@ -763,9 +763,9 @@
         }
       }
     },
-    "7c1d4ab782c2c424d7dc982651e9074c0e7fbafd936c5ec6f5ea459e22ea2996": {
+    "579d579e91af4849e18c549b2945542129db77887eb1b78b751fa497efc6e858": {
       "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-      "txHash": "0xe1697371b01676cea000a90788e0d1abbe05c5673d95096e2c1abb4eeb7f5ff9",
+      "txHash": "0x2c23f002ea7fd85fdc6945337cae6992fa19bda74936199e0a645e4cb20eba41",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -832,7 +832,7 @@
             "slot": "201",
             "type": "t_address",
             "contract": "BallotFactory",
-            "src": "contracts\\BallotFactory.sol:41"
+            "src": "contracts\\BallotFactory.sol:47"
           },
           {
             "label": "hasher",
@@ -840,7 +840,7 @@
             "slot": "202",
             "type": "t_address",
             "contract": "BallotFactory",
-            "src": "contracts\\BallotFactory.sol:46"
+            "src": "contracts\\BallotFactory.sol:52"
           },
           {
             "label": "id",
@@ -848,7 +848,7 @@
             "slot": "203",
             "type": "t_uint256",
             "contract": "BallotFactory",
-            "src": "contracts\\BallotFactory.sol:51"
+            "src": "contracts\\BallotFactory.sol:57"
           },
           {
             "label": "proposalsOf",
@@ -856,7 +856,7 @@
             "slot": "204",
             "type": "t_mapping(t_address,t_array(t_address)dyn_storage)",
             "contract": "BallotFactory",
-            "src": "contracts\\BallotFactory.sol:56"
+            "src": "contracts\\BallotFactory.sol:62"
           },
           {
             "label": "identification",
@@ -864,7 +864,7 @@
             "slot": "205",
             "type": "t_mapping(t_uint256,t_address)",
             "contract": "BallotFactory",
-            "src": "contracts\\BallotFactory.sol:61"
+            "src": "contracts\\BallotFactory.sol:67"
           },
           {
             "label": "proposals",
@@ -872,7 +872,7 @@
             "slot": "206",
             "type": "t_array(t_address)dyn_storage",
             "contract": "BallotFactory",
-            "src": "contracts\\BallotFactory.sol:66"
+            "src": "contracts\\BallotFactory.sol:72"
           }
         ],
         "types": {

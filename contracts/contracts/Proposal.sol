@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity ^0.8.9;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "./MerkleTree.sol";
 import "hardhat/console.sol";
@@ -13,7 +12,7 @@ interface IVerifier {
         returns (bool);
 }
 
-contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
+contract Proposal is MerkleTree, ReentrancyGuard{
     
     /**********
      * Errors *
@@ -28,7 +27,6 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
     error InvalidChoice();
     error InvalidNullifier();
     error InvalidWithdrawProof();
-    error InvalidStartDate();
   
     /**********
      * Events *
@@ -47,7 +45,6 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
      **********************/
 
     uint32 private constant MERKLE_LEVELS = 15;
-    uint256 private constant MIN_DELAY = 2 hours;
     uint256 public choiceNumber;
     uint256 public proposalId;
 
@@ -110,9 +107,6 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
         address _verifier,
         IHasher _hasher
     ) MerkleTree(MERKLE_LEVELS, _hasher) {
-        if(_startDate + MIN_DELAY >= _endDate){
-            revert InvalidStartDate();
-        }
         proposalId = _id;
         name = _name;
         description = _description;
@@ -128,7 +122,7 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
     /**
      * @notice Returns the list of choices of the proposal
      */
-    function choicesList() public view returns (string[] memory) {
+    function choicesList() external view returns (string[] memory) {
         return choices;
     }
 
@@ -150,7 +144,7 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
      * @notice Returns an array with the number of votes for each choice
      * @dev postion i corresponds to the choice i with x votes
      */
-    function proposalResults() public view returns(uint256[] memory){
+    function proposalResults() external view returns(uint256[] memory){
         if(!hasEnded()){
             revert VotingPeriodNotFinished();
         }
@@ -167,7 +161,7 @@ contract Proposal is Ownable, MerkleTree, ReentrancyGuard{
     }
 
     /**
-     * @notice Signs a token owner to the Proposas, adds its commitment to the MerkleTree
+     * @notice Signs a token owner to the Proposal, adds its commitment to the MerkleTree
      * @dev Frontend should should generate the zk proof 
      * @param _commitment commitment of the token owner generated on the frontend with a 
      * secret and a nullifier

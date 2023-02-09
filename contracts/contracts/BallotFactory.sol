@@ -24,6 +24,8 @@ contract BallotFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     error InvalidDescription();
     error InvalidNumerOfChoices();
     error InvalidToken();
+    error InvalidStartDate();
+    error InvalidEndDate();
   
     /**********
      * Events *
@@ -35,6 +37,10 @@ contract BallotFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
      * Contract Variables *
      **********************/
 
+    /**
+     * @notice The minimum delay between the start and end date of a proposal.
+     */
+    uint256 private constant MIN_DELAY = 2 hours;
     /**
      * @notice The address of where the current verifier contract is deployed.
      */
@@ -53,7 +59,7 @@ contract BallotFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     /**
      * @notice The register of all the proposals created by an address.
      */
-    mapping(address => address[]) public proposalsOf;
+    mapping(address => address[]) private proposalsOf;
 
     /**
      * @notice Mapping that stores the created proposals by their id.
@@ -121,6 +127,12 @@ contract BallotFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
         }
         if (_token == address(0) || _token == address(this)){
             revert InvalidToken();
+        }
+        if(_startDate + MIN_DELAY >= _endDate){
+            revert InvalidEndDate();
+        }
+        if(_startDate <= block.timestamp + MIN_DELAY){
+            revert InvalidStartDate();
         }        
         
         Proposal myProposal = new Proposal(

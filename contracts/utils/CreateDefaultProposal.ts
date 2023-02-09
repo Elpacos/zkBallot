@@ -1,7 +1,7 @@
 export const DEFAULT_DESCRIPTION = 'Default Proposal Description, created by the CreateDefaultProposal script in utils'
 export const DEFAULT_CHOICES = ['Yes', 'No', 'Abstain', 'Not Voting']
-const MIN_DELAY = 60 * 60 * 2; // 2 hours
-const DEFAULT_DELAY = 60 * 60 * 3; // 2 hours
+export const MIN_DELAY = 60 * 60 * 2; // 2 hours
+export const DEFAULT_DELAY = 60 * 60 * 3; // 3 hours
 
 /**
  * @notice Creates a new proposal.
@@ -25,7 +25,7 @@ export default async function createDefaultProposal(
 ) {
     //calculate the dates
     const dates = getEndedDate(started, ended);
-    console.log('Creating Proposal with dates: ', dates);
+    //console.log('Creating Proposal with dates: ', dates);
 
     // create the proposal through the factory
     const contractTx = await factory.connect(owner).createProposal(
@@ -39,7 +39,7 @@ export default async function createDefaultProposal(
     // wait for the transaction to be mined
     const receipt = await contractTx.wait();
     // get the contract address from the receipt
-    const proposalAddress = receipt.events[1].args[0];
+    const proposalAddress = receipt.events[0].args[0];
     const proposal = await ethers.getContractAt('Proposal', proposalAddress);
     
     return proposal;

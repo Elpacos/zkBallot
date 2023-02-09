@@ -5,17 +5,27 @@ require("hardhat-tracer");
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.17",
+    compilers: [
+      {
+        version: "0.8.17",
+      }],
+    overrides: {
+      "contracts/verifier.sol": {
+        version: "0.6.11",
+        settings: { }
+      }
+    },
     settings: {
       optimizer: {
         enabled: true,
-        runs: 1000,
+        runs: 1000
       },
     },
+    
   },
   paths: {
     tests: "./tests",
-  },
+  }  
 };
 
 export default config;

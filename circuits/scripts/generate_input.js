@@ -27,7 +27,6 @@ let input = {};
 
 async function generateWitness() {
   poseidon = await circomlib.buildPoseidon();
-  poseidonHash = (data) => babyJub.unpackPoint(poseidon.hash(data))[0];
   
 
   const input1 = await generateCommitment();

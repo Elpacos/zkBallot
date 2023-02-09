@@ -46,7 +46,7 @@ contract MerkleTree {
   */
     function hashLeftRight(IHasher _hasher, bytes32 _left, bytes32 _right)
         public
-        view
+        pure
         returns (bytes32)
     {
         require(
@@ -82,18 +82,20 @@ contract MerkleTree {
                 left = filledSubtrees[i];
                 right = currentLevelHash;
             }
-
+            
             currentLevelHash = hashLeftRight(hasher, left, right);
 
             currentIndex /= 2;
         }
+        //TODO: implement the lastest root block for multiple inserts
+        latestRoot = currentLevelHash;
         return nextIndex - 1;
     }
 
     /**
     @dev Whether the root is present in the root history
   */
-    function isKnownRoot(bytes32 _root) public view returns (bool) {
+  /*   function isKnownRoot(bytes32 _root) public view returns (bool) {
         if (_root == 0) {
             return false;
         }
@@ -101,12 +103,5 @@ contract MerkleTree {
             return true;
         }
         return false;
-    }
-
-    /**
-    @dev Returns the last root
-  */
-    function getLastRoot() public view returns (bytes32) {
-        return latestRoot;
-    }
+    } */
 }
